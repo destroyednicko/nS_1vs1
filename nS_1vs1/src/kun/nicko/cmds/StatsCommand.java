@@ -10,8 +10,14 @@ import kun.nicko.Main;
 import kun.nicko.Message;
 import kun.nicko.mysql.MySQLMethoden;
 
-public class StatsCommand implements CommandExecutor {
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+public class StatsCommand extends Command {
+	
+	public StatsCommand(){
+	   super("stats");	
+	}
+	
+       @Override
+	public boolean execute(CommandSender sender, String label, String[] args) {
 		Player p = (Player) sender;
 		int kills = MySQLMethoden.getkills(p);
 		int deaths = MySQLMethoden.getdeaths(p);
@@ -20,34 +26,34 @@ public class StatsCommand implements CommandExecutor {
 		int loses = MySQLMethoden.getloses(p);
 		if (args.length == 0) {
 			if ((kills == 0) && (deaths == 0)) {
-				p.sendMessage("§3§m-------------------------");
-				p.sendMessage("§8» §7Jogador: §9" + p.getName());
+				p.sendMessage("Â§3Â§m-------------------------");
+				p.sendMessage("Â§8Â» Â§7Jogador: Â§9" + p.getName());
 				p.sendMessage(" ");
-				p.sendMessage("§8» §cVocê não jogou o §e1vs1 §cainda!");
-				p.sendMessage("§3§m-------------------------");
+				p.sendMessage("Â§8Â» Â§cVocÃª nÃ£o jogou o Â§e1vs1 Â§cainda!");
+				p.sendMessage("Â§3Â§m-------------------------");
 			} else if (deaths == 0) {
-				p.sendMessage("§3§m-------------------------");
-				p.sendMessage("§8 »§7Jogador: §9" + p.getName());
+				p.sendMessage("Â§3Â§m-------------------------");
+				p.sendMessage("Â§8 Â»Â§7Jogador: Â§9" + p.getName());
 				p.sendMessage(" ");
-				p.sendMessage("§8» §eVitórias: §c" + wins);
-				p.sendMessage("§8» §eDerrotas: §c" + loses);
-				p.sendMessage("§8» §eCoins: §c" + coinsp);
-				p.sendMessage("§8» §eKills: §c" + kills);
-				p.sendMessage("§8» §eMortes: §c0");
-				p.sendMessage("§8» §eK/D: §c" + kills);
-				p.sendMessage("§3§m-------------------------");
+				p.sendMessage("Â§8Â» Â§eVitÃ³rias: Â§c" + wins);
+				p.sendMessage("Â§8Â» Â§eDerrotas: Â§c" + loses);
+				p.sendMessage("Â§8Â» Â§eCoins: Â§c" + coinsp);
+				p.sendMessage("Â§8Â» Â§eKills: Â§c" + kills);
+				p.sendMessage("Â§8Â» Â§eMortes: Â§c0");
+				p.sendMessage("Â§8Â» Â§eK/D: Â§c" + kills);
+				p.sendMessage("Â§3Â§m-------------------------");
 			} else {
 				double kd = kills / deaths;
-				p.sendMessage("§3§m-------------------------");
-				p.sendMessage("§8» §7Jogador: §9" + p.getName());
+				p.sendMessage("Â§3Â§m-------------------------");
+				p.sendMessage("Â§8Â» Â§7Jogador: Â§9" + p.getName());
 				p.sendMessage(" ");
-				p.sendMessage("§8» §eVitórias: §c" + wins);
-				p.sendMessage("§8» §eDerrotas: §c" + loses);
-				p.sendMessage("§8» §eCoins: §c" + coinsp);
-				p.sendMessage("§8» §eKills: §c" + kills);
-				p.sendMessage("§8» §eMortes: §c" + deaths);
-				p.sendMessage("§8» §eK/D: §c" + kd);
-				p.sendMessage("§3§m-------------------------");
+				p.sendMessage("Â§8Â» Â§eVitÃ³rias: Â§c" + wins);
+				p.sendMessage("Â§8Â» Â§eDerrotas: Â§c" + loses);
+				p.sendMessage("Â§8Â» Â§eCoins: Â§c" + coinsp);
+				p.sendMessage("Â§8Â» Â§eKills: Â§c" + kills);
+				p.sendMessage("Â§8Â» Â§eMortes: Â§c" + deaths);
+				p.sendMessage("Â§8Â» Â§eK/D: Â§c" + kd);
+				p.sendMessage("Â§3Â§m-------------------------");
 			}
 		} else if (args.length == 1) {
 			String tar = args[0];
@@ -60,40 +66,40 @@ public class StatsCommand implements CommandExecutor {
 				if (target.hasPlayedBefore()) {
 					if (target.isOnline() == true) {
 						if ((kills1 == 0) && (deaths1 == 0)) {
-							p.sendMessage("§3§m-------------------------");
-							p.sendMessage("§8» §7Jogador: §9" + target.getName());
+							p.sendMessage("Â§3Â§m-------------------------");
+							p.sendMessage("Â§8Â» Â§7Jogador: Â§9" + target.getName());
 							p.sendMessage(" ");
-							p.sendMessage("§8» §cAté agora §9" + target.getDisplayName() + "§c não jogou §e1vs1 §cainda!");
-							p.sendMessage("§3§m-------------------------");
+							p.sendMessage("Â§8Â» Â§cAtÃ© agora Â§9" + target.getDisplayName() + "Â§c nÃ£o jogou Â§e1vs1 Â§cainda!");
+							p.sendMessage("Â§3Â§m-------------------------");
 						} else if (deaths1 == 0) {
-							p.sendMessage("§3§m-------------------------");
-							p.sendMessage("§8» §7Jogador: §9" + target.getName());
+							p.sendMessage("Â§3Â§m-------------------------");
+							p.sendMessage("Â§8Â» Â§7Jogador: Â§9" + target.getName());
 							p.sendMessage(" ");
-							p.sendMessage("§8» §eVitórias: §c" + wins1);
-							p.sendMessage("§8» §eDerrotas: §c" + loses1);
-							p.sendMessage("§8» §eCoins: §c" + coinst);
-							p.sendMessage("§8» §eKills: §c" + kills1);
-							p.sendMessage("§8» §eMortes: §c0");
-							p.sendMessage("§8» §eK/D: §c" + kills1);
-							p.sendMessage("§3§m-------------------------");
+							p.sendMessage("Â§8Â» Â§eVitÃ³rias: Â§c" + wins1);
+							p.sendMessage("Â§8Â» Â§eDerrotas: Â§c" + loses1);
+							p.sendMessage("Â§8Â» Â§eCoins: Â§c" + coinst);
+							p.sendMessage("Â§8Â» Â§eKills: Â§c" + kills1);
+							p.sendMessage("Â§8Â» Â§eMortes: Â§c0");
+							p.sendMessage("Â§8Â» Â§eK/D: Â§c" + kills1);
+							p.sendMessage("Â§3Â§m-------------------------");
 						} else {
 							double kd = kills1 / deaths1;
-							p.sendMessage("§3§m-------------------------");
-							p.sendMessage("§8» §7Jogador: §9" + target.getName());
+							p.sendMessage("Â§3Â§m-------------------------");
+							p.sendMessage("Â§8Â» Â§7Jogador: Â§9" + target.getName());
 							p.sendMessage(" ");
-							p.sendMessage("§8» §eVitórias: §c" + wins1);
-							p.sendMessage("§8» §eDerrotas: §c" + loses1);
-							p.sendMessage("§8» §eCoins: §c" + coinst);
-							p.sendMessage("§8» §eKills: §c" + kills1);
-							p.sendMessage("§8» §eMortes: §c" + deaths1);
-							p.sendMessage("§8» §eK/D: §c" + kd);
-							p.sendMessage("§3§m-------------------------");
+							p.sendMessage("Â§8Â» Â§eVitÃ³rias: Â§c" + wins1);
+							p.sendMessage("Â§8Â» Â§eDerrotas: Â§c" + loses1);
+							p.sendMessage("Â§8Â» Â§eCoins: Â§c" + coinst);
+							p.sendMessage("Â§8Â» Â§eKills: Â§c" + kills1);
+							p.sendMessage("Â§8Â» Â§eMortes: Â§c" + deaths1);
+							p.sendMessage("Â§8Â» Â§eK/D: Â§c" + kd);
+							p.sendMessage("Â§3Â§m-------------------------");
 						}
 					} else {
-						p.sendMessage(Main.prefix + "§9" + target.getDisplayName() + "§c não está online!");
+						p.sendMessage(Main.prefix + "Â§9" + target.getDisplayName() + "Â§c nÃ£o estÃ¡ online!");
 					}
 				} else {
-					p.sendMessage(Main.prefix + "§cO Jogador §9" + target.getDisplayName() + " §cnão existe.");
+					p.sendMessage(Main.prefix + "Â§cO Jogador Â§9" + target.getDisplayName() + " Â§cnÃ£o existe.");
 				}
 
 		} else {
