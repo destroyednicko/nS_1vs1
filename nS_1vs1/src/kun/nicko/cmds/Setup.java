@@ -5,18 +5,22 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
+import org.bukkit.command.Command;
 import kun.nicko.Locations;
 import kun.nicko.Main;
 import kun.nicko.Message;
 
 
-public class Setup implements CommandExecutor{
+public class Setup extends Command{
 	
+	public Setup() {
+		super("install");
+
+	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean execute(CommandSender sender, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage(Main.prefix+"§cComando executavel por jogadores.");
+			sender.sendMessage(Main.prefix+"Â§cComando executavel por jogadores.");
 			return true;
 		}
 		Player p = (Player) sender;
@@ -25,11 +29,11 @@ public class Setup implements CommandExecutor{
 				p.sendMessage("");
 				p.sendMessage("");
 				p.sendMessage("");
-				p.sendMessage("§3§m------------------" + " §7nStorm - Instalação - 1x1 " + "§3§m------------------");
-				p.sendMessage(Main.prefix + "§7- /install set §c- §Definir spawn dos jogadores.");
-				p.sendMessage(Main.prefix + "§7- /install setspawn §c- §eDefine o spawn.");
-				p.sendMessage(Main.prefix + "§7- /install setholo §c- §eDefine o holograma.");
-				p.sendMessage("§3§m------------------" + " §7nStorm - Instalação - 1x1 " + "§3§m------------------");
+				p.sendMessage("Â§3Â§m------------------" + " Â§7nStorm - InstalaÃ§Ã£o - 1x1 " + "Â§3Â§m------------------");
+				p.sendMessage(Main.prefix + "Â§7- /install set Â§c- Â§Definir spawn dos jogadores.");
+				p.sendMessage(Main.prefix + "Â§7- /install setspawn Â§c- Â§eDefine o spawn.");
+				p.sendMessage(Main.prefix + "Â§7- /install setholo Â§c- Â§eDefine o holograma.");
+				p.sendMessage("Â§3Â§m------------------" + " Â§7nStorm - InstalaÃ§Ã£o - 1x1 " + "Â§3Â§m------------------");
 				p.sendMessage("");
 				p.sendMessage("");
 				p.sendMessage("");
@@ -42,12 +46,12 @@ public class Setup implements CommandExecutor{
 				if(args[0].equalsIgnoreCase("setspawn")){
 					Locations.setlocations(p, "Lobby");
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 10, 10);
-					p.sendMessage(Main.prefix+"§7O lobby foi definido.");
+					p.sendMessage(Main.prefix+"Â§7O lobby foi definido.");
 				}
 				if(args[0].equalsIgnoreCase("setholo")){
 					Locations.setlocations(p, "Hologram");
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 10, 10);
-					p.sendMessage(Main.prefix+"§7O holograma foi definido.");
+					p.sendMessage(Main.prefix+"Â§7O holograma foi definido.");
 				}
 			}
 
@@ -56,11 +60,11 @@ public class Setup implements CommandExecutor{
 					p.sendMessage("");
 					p.sendMessage("");
 					p.sendMessage("");
-					p.sendMessage("§3§m------------------" + " §7nStorm - Instalação - 1x1 " + "§3§m------------------");
-					p.sendMessage(Main.prefix + "§7- /install set §c- §Definir spawn dos jogadores.");
-					p.sendMessage(Main.prefix + "§7- /install setspawn §c- §eDefine o spawn.");
-					p.sendMessage(Main.prefix + "§7- /install setholo §c- §eDefine o holograma.");
-					p.sendMessage("§3§m------------------" + " §7nStorm - Instalação - 1x1 " + "§3§m------------------");
+					p.sendMessage("Â§3Â§m------------------" + " Â§7nStorm - InstalaÃ§Ã£o - 1x1 " + "Â§3Â§m------------------");
+					p.sendMessage(Main.prefix + "Â§7- /install set Â§c- Â§Definir spawn dos jogadores.");
+					p.sendMessage(Main.prefix + "Â§7- /install setspawn Â§c- Â§eDefine o spawn.");
+					p.sendMessage(Main.prefix + "Â§7- /install setholo Â§c- Â§eDefine o holograma.");
+					p.sendMessage("Â§3Â§m------------------" + " Â§7nStorm - InstalaÃ§Ã£o - 1x1 " + "Â§3Â§m------------------");
 					p.sendMessage("");
 					p.sendMessage("");
 					p.sendMessage("");
