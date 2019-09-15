@@ -16,7 +16,7 @@ public class FixCMD extends Command {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean execute(CommandSender s, String arg1, String[] args) {
 		Player p = (Player) sender;
 		if (sender instanceof Player) {
 			if (cmd.getName().equalsIgnoreCase("fix")) {
