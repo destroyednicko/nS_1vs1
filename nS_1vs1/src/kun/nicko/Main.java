@@ -25,6 +25,8 @@ import kun.nicko.handler.death;
 import kun.nicko.listener.StuffListener;
 import kun.nicko.mysql.Maps;
 import kun.nicko.mysql.MySQL;
+import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
+
 
 public class Main extends JavaPlugin {
 
@@ -47,10 +49,11 @@ public class Main extends JavaPlugin {
 		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
 		Bukkit.getPluginManager().registerEvents(new JoinQuit(), this);
-		getCommand("1vs1").setExecutor(new Setup());
-		getCommand("stats").setExecutor(new StatsCommand());
-		getCommand("build").setExecutor(new BuildCMD());
-		getCommand("fix").setExecutor(new FixCMD());
+	        ((CraftServer) Bukkit.getServer()).getCommandMap().register("1v1", new BuildCMD());
+	        ((CraftServer) Bukkit.getServer()).getCommandMap().register("1v1", new Setup());
+	        ((CraftServer) Bukkit.getServer()).getCommandMap().register("1v1", new StatsCommand());
+
+		
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new StuffListener(), this);
 		pm.registerEvents(new death(), this);
