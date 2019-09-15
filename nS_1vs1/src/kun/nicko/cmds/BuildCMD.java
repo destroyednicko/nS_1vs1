@@ -18,7 +18,7 @@ public class BuildCMD extends Command{
 	
 	
 	@Override
-	public boolean execute(CommandSender s, String arg1, String[] args) {
+	public boolean execute(CommandSender sender, String arg1, String[] args) {
 		if (sender.hasPermission("lobby.gerente") || sender.hasPermission("lobby.builder")) {
 			if (sender instanceof Player) {
 				if (args.length <= 1) {
