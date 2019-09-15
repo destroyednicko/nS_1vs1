@@ -4,11 +4,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
+import org.bukkit.command.Command;
 import kun.nicko.Main;
 import kun.nicko.Message;
 
-public class FixCMD implements CommandExecutor {
+public class FixCMD extends Command {
+	
+		public FixCMD() {
+		super("fix");
+
+	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -16,7 +21,7 @@ public class FixCMD implements CommandExecutor {
 		if (sender instanceof Player) {
 			if (cmd.getName().equalsIgnoreCase("fix")) {
 				if (args.length == 0) {
-					p.sendMessage(Main.prefix + "§aVocê se fixou.");
+					p.sendMessage(Main.prefix + "Â§aVocÃª se fixou.");
 
 					p.teleport(p.getLocation().add(0.0D, 0.2D, 0.0D));
 				} else {
