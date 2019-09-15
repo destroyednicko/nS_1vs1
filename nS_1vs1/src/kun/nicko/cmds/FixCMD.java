@@ -10,16 +10,15 @@ import kun.nicko.Message;
 
 public class FixCMD extends Command {
 	
-		public FixCMD() {
+	public FixCMD() {
 		super("fix");
 
 	}
 
 	@Override
-	public boolean execute(CommandSender s, String arg1, String[] args) {
+	public boolean execute(CommandSender sender, String arg1, String[] args) {
 		Player p = (Player) sender;
 		if (sender instanceof Player) {
-			if (cmd.getName().equalsIgnoreCase("fix")) {
 				if (args.length == 0) {
 					p.sendMessage(Main.prefix + "§aVocê se fixou.");
 
@@ -31,7 +30,6 @@ public class FixCMD extends Command {
 				Message.sixerrada("fix", p);
 			}
 
-		}
 
 		return false;
 	}
