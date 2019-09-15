@@ -5,3 +5,4 @@ Necessário:
 * Mapas
 * Edição no código para modificar a scoreboard.
 
+(Versão antiga. Recode sairá em breve.)
