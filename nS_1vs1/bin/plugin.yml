@@ -1,0 +1,10 @@
+name: nS_1vs1
+author: yNickoKun, jeanSTORM
+version: 0.1
+main: kun.nicko.Main
+commands:
+  1vs1:
+  stats:
+  fix:
+  build:
+  
